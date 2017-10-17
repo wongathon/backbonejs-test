@@ -22,20 +22,17 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
-    // your JS code goes here
+
     var AppView = Backbone.View.extend({
-    	
-    	//el - element. Eery view has an element associate in which HTML content will be rendered. 
     	el: '#container',
-    	
-    	//initialize is the first function called 
+    	template: _.template("<h3>Hello <%= who %></h3>"),
     	initialize: function(){
     		this.render();
     	},
 
     	//$el - cached jQuery object used to push content. 
-    	render:function(){
-    		this.$el.html("Hello World");
+    	render: function(){
+    		this.$el.html(this.template({who: 'world!'}));
     	}
 
     });
